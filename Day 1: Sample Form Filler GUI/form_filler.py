@@ -43,13 +43,20 @@ class Form(tk.Tk):
         self.bind('<Return>', self.CreateAccount)
 
     def CreateAccount(self, event=None):
+        fname = self.firstNameEntry.get()
+        lname = self.lastNameEntry.get()
+        uname = self.userNameEntry.get()
+        passwd =  self.passwordEntry.get()
+
         account = {
-            'fname': self.firstNameEntry.get(),
-            'lname': self.lastNameEntry.get(),
-            'uname': self.userNameEntry.get(),
-            'passwd': self.passwordEntry.get()
+            'fname': fname,
+            'lname': lname,
+            'uname': uname,
+            'passwd': passwd
         }
-        print(f'{json.dumps(account, indent=4)}')
+        if fname and lname and uname and passwd:
+            with open('accounts', 'a') as file:
+                json.dump(account, file)
 
 
 class DefaultLabel(tk.Label):

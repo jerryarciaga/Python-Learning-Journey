@@ -5,7 +5,7 @@ import tkinter as tk
 class ToDo(tk.Tk):
     def __init__(self, tasks=None):
         super().__init__()
-        self.title('T0D0 by Jerry Arciaga')
+        self.title('ToDo v1')
         self.configure(bg='lightgrey')
         self.geometry('300x500')
         self.pack_propagate(0)
@@ -21,8 +21,7 @@ class ToDo(tk.Tk):
         self.taskFrame.configure(bg='lightgrey')
 
         # Temporary Task #
-        tempTask = TaskLabel(self.taskFrame,
-                                text='---Add items here---',
+        tempTask = TaskLabel(self.taskFrame, text='---Add items here---',
                                 bg='lightgrey', fg='black')
         self.tasks.append(tempTask)
         
@@ -39,14 +38,11 @@ class ToDo(tk.Tk):
     ## Add task into tasks array and to display as well ##
     def addTask(self, event=None):
         newTaskString = self.taskText.get(1.0, tk.END).strip()
+        if len(newTaskString):
+            newTask = TaskLabel(self.taskFrame, text=newTaskString,
+                                bg='lightgrey', fg='black')
+            self.tasks.append(newTask)
         self.taskText.delete(1.0, tk.END)
-        newTask = TaskLabel(self.taskFrame,
-                            text=newTaskString,
-                            bg='lightgrey', fg='black')
-        self.tasks.append(newTask)
-
-    def removeTask(self, event=None):
-        pass
         
                             
 

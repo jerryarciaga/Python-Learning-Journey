@@ -8,7 +8,7 @@ class Form(tk.Tk):
         super().__init__()
         self.title('Some User Form')
         self.configure(bg='lightgrey')
-        self.geometry('250x300')
+        self.geometry('250x350')
         self.grid_columnconfigure(0, weight=1)
 
         ## Title Banner ##
@@ -23,12 +23,14 @@ class Form(tk.Tk):
         self.userForm.configure(bg='lightgrey')
         self.firstNameLabel = DefaultLabel(self.userForm, row=0, text='First Name: ')
         self.firstNameEntry = DefaultEntry(self.userForm, row=0)
-        self.lastNameLabel = DefaultLabel(self.userForm, row=1, text='Last Name: ')
-        self.lastNameEntry = DefaultEntry(self.userForm, row=1)
-        self.userNameLabel = DefaultLabel(self.userForm, row=2, text='Username: ')
-        self.userNameEntry = DefaultEntry(self.userForm, row=2)
-        self.passwordLabel = DefaultLabel(self.userForm, row=3, text='Password: ')
-        self.passwordEntry = DefaultEntry(self.userForm, row=3, show='*')
+        self.middleNameLabel = DefaultLabel(self.userForm, row=1, text='Middle Name: ')
+        self.middleNameEntry = DefaultEntry(self.userForm, row=1)
+        self.lastNameLabel = DefaultLabel(self.userForm, row=2, text='Last Name: ')
+        self.lastNameEntry = DefaultEntry(self.userForm, row=2)
+        self.userNameLabel = DefaultLabel(self.userForm, row=3, text='Username: ')
+        self.userNameEntry = DefaultEntry(self.userForm, row=3)
+        self.passwordLabel = DefaultLabel(self.userForm, row=4, text='Password: ')
+        self.passwordEntry = DefaultEntry(self.userForm, row=4, show='*')
         self.userForm.grid(row=1, sticky='w')
         ## End User Info ##
         
@@ -45,11 +47,13 @@ class Form(tk.Tk):
     def CreateAccount(self, event=None):
         fname = self.firstNameEntry.get()
         lname = self.lastNameEntry.get()
+        mname = self.middleNameEntry.get()
         uname = self.userNameEntry.get()
         passwd =  self.passwordEntry.get()
 
         account = {
             'fname': fname,
+            'mname': mname,
             'lname': lname,
             'uname': uname,
             'passwd': passwd

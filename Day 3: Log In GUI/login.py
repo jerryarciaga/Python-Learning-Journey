@@ -7,21 +7,31 @@ class Login(tk.Tk):
         super().__init__()
         self.title('Login')
         self.configure(bg='lightgrey')
-        self.geometry('600x300')
+        self.geometry('600x200')
+
+        ## Sign In Banner ##
+        self.banner = tk.Label()
+        ## End Sign In Banner ##
         
         ## Login Frame ##
-        self.loginFrame = tk.Frame()
-        self.userName = DefaultLabel(self.loginFrame, 'Username: ', column=0)
+        self.loginFrame = tk.Frame(bg='lightgrey')
+        self.userName = DefaultLabel(self.loginFrame, 'Username: ', row=1)
+        self.userEntry = DefaultEntry(self.loginFrame, row=1)
         self.loginFrame.grid(row=0, column=0)
         ## End Login Frame ##
 
-
 class DefaultLabel(tk.Label):
-    def __init__(self, master, text, column):
+    def __init__(self, master, text, row):
         super().__init__(master, text=text)
         self.configure(bg='lightgrey', fg='black', font=('Arial', 20))
-        self.grid(row=1, column=column)
-        
+        self.grid(row=row, column=0, ipady=20, sticky='W')
+
+class DefaultEntry(tk.Entry):
+    def __init__(self, master, row, show=''):
+        super().__init__(master, show=show)
+        self.configure(bg='lightgrey', fg='black')
+        self.configure(justify='center', font=('Arial', 20))
+        self.grid(row=row, column=1, ipady=20, sticky='E')
 
 
 

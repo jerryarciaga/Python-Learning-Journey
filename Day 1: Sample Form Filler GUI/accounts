@@ -1,1 +1,7 @@
-{"fname": "Jerry", "lname": "Arciaga", "uname": "someguynamedjerry", "passwd": "somepasswordiuse"}
+{
+    "fname": "Jerry",
+    "mname": "A",
+    "lname": "Arciaga",
+    "uname": "jerryarciaga",
+    "passwd": "asdfman11"
+}

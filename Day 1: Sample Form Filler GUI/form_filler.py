@@ -23,6 +23,7 @@ class Form(tk.Tk):
         self.userForm.configure(bg='lightgrey')
         self.firstNameLabel = DefaultLabel(self.userForm, row=0, text='First Name: ')
         self.firstNameEntry = DefaultEntry(self.userForm, row=0)
+        self.firstNameEntry.focus_set()
         self.middleNameLabel = DefaultLabel(self.userForm, row=1, text='Middle Name: ')
         self.middleNameEntry = DefaultEntry(self.userForm, row=1)
         self.lastNameLabel = DefaultLabel(self.userForm, row=2, text='Last Name: ')
@@ -60,7 +61,7 @@ class Form(tk.Tk):
         }
         if fname and lname and uname and passwd:
             with open('accounts', 'a') as file:
-                json.dump(account, file)
+                json.dump(account, file, indent=4)
 
 
 class DefaultLabel(tk.Label):

@@ -7,32 +7,38 @@ class Login(tk.Tk):
         super().__init__()
         self.title('Login')
         self.configure(bg='lightgrey')
-        self.geometry('600x200')
-
-        ## Sign In Banner ##
-        self.banner = tk.Label()
-        ## End Sign In Banner ##
+        self.geometry('450x250')
         
         ## Login Frame ##
+        # Log In banner
+        self.banner = tk.Label(text='Log In', bg='lightgrey', fg='black')
+        self.banner.configure(font=('Arial Black', 30))
+        self.banner.grid(row=0, column=0, sticky='new')
+        # Username and Password
         self.loginFrame = tk.Frame(bg='lightgrey')
-        self.userName = DefaultLabel(self.loginFrame, 'Username: ', row=1)
-        self.userEntry = DefaultEntry(self.loginFrame, row=1)
-        self.loginFrame.grid(row=0, column=0)
+        self.userName = DefaultLabel(self.loginFrame, 'Username: ', column=0)
+        self.userEntry = DefaultEntry(self.loginFrame, column=1)
+        self.passwordLabel = DefaultLabel(self.loginFrame, 'Password: ', column=2)
+        self.passwordEntry = DefaultEntry(self.loginFrame, column=3, show='*')
+        self.loginFrame.grid(row=1, column=0, sticky='news')
+        self.loginButton = tk.Button(self.loginFrame, text='Log In!', command=self.login())
+        self.loginButton.configure(bg='lightgrey', fg='black', font=('Arial', 8))
+        self.loginButton.grid(row=2, column=0, padx=5, pady=10, ipady=5, sticky='NEWS')
         ## End Login Frame ##
+    def self.login()
 
 class DefaultLabel(tk.Label):
-    def __init__(self, master, text, row):
+    def __init__(self, master, text, column):
         super().__init__(master, text=text)
-        self.configure(bg='lightgrey', fg='black', font=('Arial', 20))
-        self.grid(row=row, column=0, ipady=20, sticky='W')
+        self.configure(bg='lightgrey', fg='black', font=('Arial', 8))
+        self.grid(row=1, column=column, padx=5, pady=10, ipady=5, sticky='NESW')
 
 class DefaultEntry(tk.Entry):
-    def __init__(self, master, row, show=''):
+    def __init__(self, master, column, show=''):
         super().__init__(master, show=show)
         self.configure(bg='lightgrey', fg='black')
-        self.configure(justify='center', font=('Arial', 20))
-        self.grid(row=row, column=1, ipady=20, sticky='E')
-
+        self.configure(justify='center', font=('Arial', 8))
+        self.grid(row=1, column=column, padx=5, pady=10, ipady=5, sticky='NESW')
 
 
 

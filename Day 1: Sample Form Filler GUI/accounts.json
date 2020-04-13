@@ -1,0 +1,16 @@
+[
+    {
+        "fname": "Jerry",
+        "mname": "A",
+        "lname": "Arciaga",
+        "uname": "qwertplay",
+        "passwd": "qwertyqwerqwer"
+    },
+    {
+        "fname": "Jerry",
+        "mname": "A",
+        "lname": "Arciaga",
+        "uname": "forbidden_one",
+        "passwd": "qwermqn"
+    }
+]

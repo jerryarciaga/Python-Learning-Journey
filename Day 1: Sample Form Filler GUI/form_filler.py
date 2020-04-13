@@ -2,6 +2,7 @@
 
 import tkinter as tk
 import json
+import os.path
 
 class Form(tk.Tk):
     def __init__(self):
@@ -39,6 +40,8 @@ class Form(tk.Tk):
         ## Login/Create Account ##
         
         # Enter Information Button #
+
+        # Create account by pressing login button or pressing <Return> key
         self.createAccountButton = tk.Button(self, text='Create Account',
                                                 command=self.CreateAccount)
         self.createAccountButton.configure(bg='lightgrey', fg='black', font=('Arial', 8))
@@ -51,7 +54,7 @@ class Form(tk.Tk):
         mname = self.middleNameEntry.get()
         uname = self.userNameEntry.get()
         passwd =  self.passwordEntry.get()
-
+        
         account = {
             'fname': fname,
             'mname': mname,
@@ -59,9 +62,21 @@ class Form(tk.Tk):
             'uname': uname,
             'passwd': passwd
         }
+
+        # Initialize file if it doesn't exist,
+        # otherwise append to it
+        if not os.path.isfile('accounts.json'):
+            accounts = []
+        else:
+            with open('accounts.json') as file:
+                accounts = json.load(file)
+        accounts.append(account)
+
+        # Write account details into a file
         if fname and lname and uname and passwd:
-            with open('accounts', 'a') as file:
-                json.dump(account, file, indent=4)
+            with open('accounts.json', 'w') as file:
+                json.dump(accounts, file, indent=4)
+                self.quit()
 
 
 class DefaultLabel(tk.Label):

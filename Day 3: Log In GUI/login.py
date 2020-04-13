@@ -18,14 +18,23 @@ class Login(tk.Tk):
         self.loginFrame = tk.Frame(bg='lightgrey')
         self.userName = DefaultLabel(self.loginFrame, 'Username: ', column=0)
         self.userEntry = DefaultEntry(self.loginFrame, column=1)
+        self.userEntry.focus_set()
         self.passwordLabel = DefaultLabel(self.loginFrame, 'Password: ', column=2)
         self.passwordEntry = DefaultEntry(self.loginFrame, column=3, show='*')
-        self.loginFrame.grid(row=1, column=0, sticky='news')
-        self.loginButton = tk.Button(self.loginFrame, text='Log In!', command=self.login())
+        self.loginButton = tk.Button(self.loginFrame, text='Log In!', command=self.Login)
         self.loginButton.configure(bg='lightgrey', fg='black', font=('Arial', 8))
         self.loginButton.grid(row=2, column=0, padx=5, pady=10, ipady=5, sticky='NEWS')
+        self.bind('<Return>', self.Login)
+        self.loginFrame.grid(row=1, column=0, sticky='news')
         ## End Login Frame ##
-    def self.login()
+
+    def Login(self, event=None):
+        if self.userEntry.get() and self.passwordEntry.get():
+            account = {
+                'uname': self.userEntry.get(),
+                'passwd': self.passwordEntry.get()
+            }
+            print(account)
 
 class DefaultLabel(tk.Label):
     def __init__(self, master, text, column):

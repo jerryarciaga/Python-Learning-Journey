@@ -3,6 +3,7 @@
 import tkinter as tk
 import json
 import os.path
+import CustomDefaults
 
 class Form(tk.Tk):
     def __init__(self):
@@ -22,17 +23,17 @@ class Form(tk.Tk):
         ## User Info ##
         self.userForm = tk.Frame(self)
         self.userForm.configure(bg='lightgrey')
-        self.firstNameLabel = DefaultLabel(self.userForm, row=0, text='First Name: ')
-        self.firstNameEntry = DefaultEntry(self.userForm, row=0)
+        self.firstNameLabel = CustomDefaults.DefaultLabel(self.userForm, row=0, text='First Name: ')
+        self.firstNameEntry = CustomDefaults.DefaultEntry(self.userForm, row=0)
         self.firstNameEntry.focus_set()
-        self.middleNameLabel = DefaultLabel(self.userForm, row=1, text='Middle Name: ')
-        self.middleNameEntry = DefaultEntry(self.userForm, row=1)
-        self.lastNameLabel = DefaultLabel(self.userForm, row=2, text='Last Name: ')
-        self.lastNameEntry = DefaultEntry(self.userForm, row=2)
-        self.userNameLabel = DefaultLabel(self.userForm, row=3, text='Username: ')
-        self.userNameEntry = DefaultEntry(self.userForm, row=3)
-        self.passwordLabel = DefaultLabel(self.userForm, row=4, text='Password: ')
-        self.passwordEntry = DefaultEntry(self.userForm, row=4, show='*')
+        self.middleNameLabel = CustomDefaults.DefaultLabel(self.userForm, row=1, text='Middle Name: ')
+        self.middleNameEntry = CustomDefaults.DefaultEntry(self.userForm, row=1)
+        self.lastNameLabel = CustomDefaults.DefaultLabel(self.userForm, row=2, text='Last Name: ')
+        self.lastNameEntry = CustomDefaults.DefaultEntry(self.userForm, row=2)
+        self.userNameLabel = CustomDefaults.DefaultLabel(self.userForm, row=3, text='Username: ')
+        self.userNameEntry = CustomDefaults.DefaultEntry(self.userForm, row=3)
+        self.passwordLabel = CustomDefaults.DefaultLabel(self.userForm, row=4, text='Password: ')
+        self.passwordEntry = CustomDefaults.DefaultEntry(self.userForm, row=4, show='*')
         self.userForm.grid(row=1, sticky='w')
         ## End User Info ##
         
@@ -77,20 +78,6 @@ class Form(tk.Tk):
             with open('accounts.json', 'w') as file:
                 json.dump(accounts, file, indent=4)
                 self.quit()
-
-
-class DefaultLabel(tk.Label):
-    def __init__(self, master, row, text):
-        super().__init__(master, text=text)
-        self.configure(bg='lightgrey', fg='black', font=('Arial', 8))
-        self.grid(row=row, column=0, pady=10, sticky='w')
-
-
-class DefaultEntry(tk.Entry):
-    def __init__(self, master, row, show=''):
-        super().__init__(master, show=show)
-        self.configure(bg='lightgrey', fg='black', justify='center')
-        self.grid(row=row, column=1, sticky='w')
 
 
 if __name__ == '__main__':

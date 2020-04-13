@@ -3,14 +3,28 @@
         "fname": "Jerry",
         "mname": "A",
         "lname": "Arciaga",
-        "uname": "qwertplay",
-        "passwd": "qwertyqwerqwer"
+        "uname": "someguynamedjerry",
+        "passwd": "ifrrboisuhnrflsuh"
     },
     {
-        "fname": "Jerry",
-        "mname": "A",
-        "lname": "Arciaga",
-        "uname": "forbidden_one",
-        "passwd": "qwermqn"
+        "fname": "Some",
+        "mname": "Other",
+        "lname": "Guy",
+        "uname": "SomeOtherGuy",
+        "passwd": "SomePassword"
+    },
+    {
+        "fname": "Last",
+        "mname": "Guy",
+        "lname": "Account",
+        "uname": "LastGuyAccount",
+        "passwd": "asdfmadlfjvhbsfigjn"
+    },
+    {
+        "fname": "Some",
+        "mname": "",
+        "lname": "Last Name",
+        "uname": "SomeLastName",
+        "passwd": "SOmepaieufv"
     }
 ]

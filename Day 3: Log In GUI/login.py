@@ -40,6 +40,7 @@ class Login(tk.Tk):
                 'passwd': self.passwordEntry.get()
             }
             print(account)
+            self.quit()
 
 if __name__ == '__main__':
     login = Login()

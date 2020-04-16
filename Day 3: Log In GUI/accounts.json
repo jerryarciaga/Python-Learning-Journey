@@ -1,0 +1,16 @@
+[
+    {
+        "fname": "Jerry",
+        "mname": "",
+        "lname": "Arciaga",
+        "uname": "user_001",
+        "passwd": "pass_001"
+    },
+    {
+        "fname": "Jerry",
+        "mname": "",
+        "lname": "Arci",
+        "uname": "someguynamedjerry",
+        "passwd": "babe"
+    }
+]

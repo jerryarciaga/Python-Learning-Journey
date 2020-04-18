@@ -30,8 +30,9 @@ class LoginApp(tk.Tk):
         self.loginButton.configure(bg='lightgrey', fg='black', font=('Arial', 8))
         self.loginButton.grid(row=3, column=1, padx=5, pady=10, ipady=5, sticky='NESW')
         self.bind('<Return>', self.Login)
-        self.loginFrame.grid(row=1, column=0, sticky='news')
         # Wrong username or password message
+        self.WrongAccount = CustomDefaults.DefaultMessage(self.loginFrame, row=3, text='Wrong username/password!')
+        self.loginFrame.grid(row=1, column=0, sticky='news')
         ## End Login Frame ##
 
     def Login(self, event=None):
@@ -47,7 +48,7 @@ class LoginApp(tk.Tk):
                     print('Success! Logging In...')
                     break
                 else:
-                    print('Wrong password or username')
+                    self.WrongAccount.display()
             self.quit()
 
 if __name__ == '__main__':

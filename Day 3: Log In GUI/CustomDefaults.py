@@ -15,5 +15,12 @@ class DefaultEntry(tk.Entry):
         self.configure(bg='lightgrey', fg='black', justify='center')
         self.grid(row=row, column=1, sticky='w')
 
+class DefaultMessage(tk.Label):
+    def __init__(self, master, row, text):
+        super().__init__(master, text=text)
+        self.configure(bg='lightgrey', fg='red')
+    def display(self):
+        self.grid(row=row, column=0, sticky='s')
+
 if __name__ == '__main__':
     pass

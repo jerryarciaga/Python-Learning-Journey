@@ -3,6 +3,7 @@
 import tkinter as tk
 import json
 import CustomDefaults
+import time
 
 class LoginApp(tk.Tk):
     def __init__(self):
@@ -30,8 +31,9 @@ class LoginApp(tk.Tk):
         self.loginButton.configure(bg='lightgrey', fg='black', font=('Arial', 8))
         self.loginButton.grid(row=3, column=1, padx=5, pady=10, ipady=5, sticky='NESW')
         self.bind('<Return>', self.Login)
-        # Wrong username or password message
-        self.WrongAccount = CustomDefaults.DefaultMessage(self.loginFrame, row=3, text='Wrong username/password!')
+        # Wrong credentials/ Success Messages
+        self.WrongAccount = CustomDefaults.DefaultMessage(self.loginFrame, row=4, text='Wrong username/password!')
+        self.Success = CustomDefaults.DefaultMessage(self.loginFrame, row=4, text='Success! Logging in ...')
         self.loginFrame.grid(row=1, column=0, sticky='news')
         ## End Login Frame ##
 
@@ -45,11 +47,11 @@ class LoginApp(tk.Tk):
                 accounts = json.load(file)
             for user in accounts:
                 if account['uname'] == user['uname'] and account['passwd'] == user['passwd']:
-                    print('Success! Logging In...')
-                    break
+                    self.Success.PrintToScreen()
+                    time.sleep(5)
+                    self.quit()
                 else:
-                    self.WrongAccount.display()
-            self.quit()
+                    self.WrongAccount.PrintToScreen()
 
 if __name__ == '__main__':
     login = LoginApp()

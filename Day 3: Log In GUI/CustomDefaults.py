@@ -19,8 +19,9 @@ class DefaultMessage(tk.Label):
     def __init__(self, master, row, text):
         super().__init__(master, text=text)
         self.configure(bg='lightgrey', fg='red')
-    def display(self):
-        self.grid(row=row, column=0, sticky='s')
+        self.row = row
+    def PrintToScreen(self):
+        self.grid(row=self.row, column=1, sticky='s')
 
 if __name__ == '__main__':
     pass

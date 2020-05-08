@@ -49,6 +49,7 @@ class Form(tk.Tk):
         self.createAccountButton.grid(row=4)
         self.bind('<Return>', self.CreateAccount)
 
+#When the create account button is pressed, verify that all forms are filled
     def CreateAccount(self, event=None):
         fname = self.firstNameEntry.get()
         lname = self.lastNameEntry.get()
@@ -80,6 +81,9 @@ class Form(tk.Tk):
                 self.quit()
 
 
+#if __name__ == '__main__':
+#    userForm = Form()
+#    userForm.mainloop()
+
 if __name__ == '__main__':
-    userForm = Form()
-    userForm.mainloop()
+    pass

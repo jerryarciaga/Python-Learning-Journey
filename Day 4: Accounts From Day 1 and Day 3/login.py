@@ -53,6 +53,9 @@ class LoginApp(tk.Tk):
                 else:
                     self.WrongAccount.PrintToScreen()
 
+#if __name__ == '__main__':
+#    login = LoginApp()
+#    login.mainloop()
+
 if __name__ == '__main__':
-    login = LoginApp()
-    login.mainloop()
+    pass

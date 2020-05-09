@@ -12,15 +12,26 @@ class MainApp(tk.Tk):
         super().__init__()
         self.title('Account')
         self.configure(bg='lightgrey')
-        self.geometry('200x250')
+        self.geometry('500x250')
         
         self.AppFrame = tk.Frame(bg='lightgrey')
-        self.WelcomeBanner = CustomDefaults.DefaultLabel(self.AppFrame, 0,
-                                                            "Welcome to your Account!")
+        # Welcome Banner
+        self.WelcomeBanner = tk.Label(self.AppFrame, text='Welcome to Your Account')
+        self.WelcomeBanner.configure(font=('Arial Bold', 15), bg='lightgrey', fg='black')
+        self.WelcomeBanner.grid(row=0, column=0, sticky='new')
+        #Login Button
+        self.LoginButton = tk.Button(self.AppFrame, text='Log In', command=self.Login())
+        self.bind('<Return>', self.Login())
+        self.LoginButton.configure(bg='lightgrey', fg='black')
+        self.LoginButton.grid(row=1, column=0, sticky='ew')
         self.AppFrame.grid(row=0, column=0)
+
+    def Login(self, event=None):
+        loginApp = login.LoginApp()
+        loginApp.mainloop()
 
 
 
 if __name__ == '__main__':
-    loginApp = MainApp()
-    loginApp.mainloop()
+    userApp = MainApp()
+    userApp.mainloop()

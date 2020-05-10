@@ -9,7 +9,7 @@ import login
 
 class MainApp(tk.Tk):
     def __init__(self):
-        super().__init__()
+        super().__init__(self)
         self.title('Account')
         self.configure(bg='lightgrey')
         self.geometry('500x250')
@@ -28,7 +28,6 @@ class MainApp(tk.Tk):
 
     def Login(self, event=None):
         loginApp = login.LoginApp()
-        loginApp.mainloop()
 
 
 

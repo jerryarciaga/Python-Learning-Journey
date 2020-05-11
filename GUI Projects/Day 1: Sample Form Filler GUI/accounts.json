@@ -1,0 +1,30 @@
+[
+    {
+        "fname": "Jerry",
+        "mname": "A",
+        "lname": "Arciaga",
+        "uname": "someguynamedjerry",
+        "passwd": "ifrrboisuhnrflsuh"
+    },
+    {
+        "fname": "Some",
+        "mname": "Other",
+        "lname": "Guy",
+        "uname": "SomeOtherGuy",
+        "passwd": "SomePassword"
+    },
+    {
+        "fname": "Last",
+        "mname": "Guy",
+        "lname": "Account",
+        "uname": "LastGuyAccount",
+        "passwd": "asdfmadlfjvhbsfigjn"
+    },
+    {
+        "fname": "Some",
+        "mname": "",
+        "lname": "Last Name",
+        "uname": "SomeLastName",
+        "passwd": "SOmepaieufv"
+    }
+]

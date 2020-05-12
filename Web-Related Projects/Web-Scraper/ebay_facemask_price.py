@@ -23,7 +23,12 @@ for i in range(7, 100):
             ''', re.VERBOSE)
 
         price = priceRegex.findall(str(price_data))
-        print(price[0][0])
+        if len(price) > 1:
+            print(f'{price[0][0]} to {price[1][0]}')
+        elif len(price) == 1:
+            print(price[0][0])
+        else:
+            pass
     except:
         pass
 
